@@ -40,7 +40,7 @@ The `/notebooks` dir is mounted additionally for jupyter
     
     *port* :   
     Jupyter Notebook `http:localhost:8888`  
-    Jupyter Notebook `http:localhost:8888/lab` 
+    Jupyter Lab `http:localhost:8888/lab` 
     
     
      
