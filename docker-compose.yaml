@@ -1,0 +1,41 @@
+version: '3'
+services:
+
+  hiplot:
+    build:
+      context: ./hiplot
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "5005:5005"
+
+  manifold:
+    build:
+      context: ./manifold
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data
+    environment:
+      MAPBOX_ACCESS_TOKEN: "pk.eyJ1IjoiZ2F1dGFtYm9yZzEyMyIsImEiOiJjazc5MXZvem0wMDFlM2ZudjU5eWVlbDIyIn0.BchpTuaxZlIfAM16z2h4Qw"
+    ports:
+      - "127.0.0.1:8080:8080"
+
+  tensorboard:
+    build:
+      context: ./tensorboard
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "6006:6006"
+
+  jupyter:
+    build:
+      context: ./jupyter
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data
+      - ./notebooks:/app/notebooks
+    ports:
+      - "8888:8888"
