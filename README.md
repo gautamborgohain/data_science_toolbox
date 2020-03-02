@@ -19,14 +19,17 @@ The `/notebooks` dir is mounted additionally for jupyter
 ## List of Services added:
 1.  [Hiplot](https://github.com/facebookresearch/hiplot) :  Fast parallel plot visualization  
     Paste link of csv url or, copy file to the `/data` dir, and then load it in hiplot using the prefix:
-    `lcsv://data/{fname}.csv`  
+    `l://data/{fname}.csv`  
     
      *port* : `http:localhost:5005`
      
     Custom fetcher for hiplot to load from local csv file and do some simple preprocessing
 
     #### Usage (exp_uri):
-
+    `l://data/{fname}.csv;{cmd}`
+    
+    Examples:
+    
     1. Read from local csv:
         `l://data/experiments/exp_20200229/hiplot.csv`
 
