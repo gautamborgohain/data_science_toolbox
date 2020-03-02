@@ -23,6 +23,36 @@ The `/notebooks` dir is mounted additionally for jupyter
     
      *port* : `http:localhost:5005`
      
+    Custom fetcher for hiplot to load from local csv file and do some simple preprocessing
+
+    #### Usage (exp_uri):
+
+    1. Read from local csv:
+        `l://data/experiments/exp_20200229/hiplot.csv`
+
+    2. Read subset of the file (for quick view of big files):
+        `l://data/experiments/exp_20200229/hiplot.csv;nrows=1000`
+
+    3. View only select columns:
+        `l://data/experiments/exp_20200229/hiplot.csv;cols=col1,col2,col3`
+
+    4. Filter data by a value or values:
+        Operations implemented:  
+            **eq, gt, lt, lteq, gteq, in**  
+        `l://data/experiments/exp_20200229/hiplot.csv;sub=abs_ppd:gt:0.10`
+
+    You can chain operations like:
+    `l://data/experiments/exp_20200229/hiplot.csv;nrows=10000;sub=abs_ppd:gt:0.10;sub=bedrooms:in:1,2`
+
+    Compare Multiple experiments:
+    ```
+    multi://{
+        "exp1_name": "exp1_uri",
+        "exp2_name": "exp2_uri"
+    }
+    ```
+
+     
 2.  [TensorBoard](https://www.tensorflow.org/tensorboard/get_started): Includes the [What If Tool](https://github.com/pair-code/what-if-tool)
     for cross-sectional analysis of dataset. Set the `Path to examples` field to `data/{fname}.csv` file that
     is copied to the `/data` dir. Tensorflow Serving integrtion pending to load models for PDP plots

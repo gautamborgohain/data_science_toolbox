@@ -11,7 +11,7 @@ def fetch_local_csv_experiment(uri):
     1. Read from local csv:
         l://data/experiments/exp_20200229/hiplot.csv
 
-    2. Read subset of the file (for quick view of big files:
+    2. Read subset of the file (for quick view of big files):
         l://data/experiments/exp_20200229/hiplot.csv;nrows=1000
 
     3. View only select columns:
@@ -24,6 +24,14 @@ def fetch_local_csv_experiment(uri):
 
     You can chain operations like:
     l://data/experiments/exp_20200229/hiplot.csv;nrows=10000;sub=abs_ppd:gt:0.10;sub=bedrooms:in:1,2
+
+    Compare Multiple experiments:
+
+    multi://{
+        "exp1_name": "exp1_uri",
+        "exp2_name": "exp2_uri"
+    }
+
 
     :param uri: the experiment uri
     :return: hip.Experiment
