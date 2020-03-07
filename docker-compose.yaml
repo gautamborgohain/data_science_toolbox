@@ -39,3 +39,13 @@ services:
       - $NOTEBOOKS_FOLDER:/app/notebooks
     ports:
       - "8888:8888"
+
+  zeppelin:
+    build:
+      context: ./zeppelin
+      dockerfile: Dockerfile
+    volumes:
+      - $DATA_FOLDER:/zeppelin/data
+      - $NOTEBOOKS_FOLDER:/zeppelin/notebook
+    ports:
+      - "8889:8080"      
