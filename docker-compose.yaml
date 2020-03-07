@@ -6,7 +6,7 @@ services:
       context: ./hiplot
       dockerfile: Dockerfile
     volumes:
-      - ./data:/app/data
+      - $DATA_FOLDER:/app/data      
     ports:
       - "5005:5005"
 
@@ -15,7 +15,7 @@ services:
       context: ./manifold
       dockerfile: Dockerfile
     volumes:
-      - ./data:/app/data
+      - $DATA_FOLDER:/app/data
     environment:
       MAPBOX_ACCESS_TOKEN: "pk.eyJ1IjoiZ2F1dGFtYm9yZzEyMyIsImEiOiJjazc5MXZvem0wMDFlM2ZudjU5eWVlbDIyIn0.BchpTuaxZlIfAM16z2h4Qw"
     ports:
@@ -26,7 +26,7 @@ services:
       context: ./tensorboard
       dockerfile: Dockerfile
     volumes:
-      - ./data:/app/data
+      - $DATA_FOLDER:/app/data
     ports:
       - "6006:6006"
 
@@ -35,7 +35,7 @@ services:
       context: ./jupyter
       dockerfile: Dockerfile
     volumes:
-      - ./data:/app/data
-      - ./notebooks:/app/notebooks
+      - $DATA_FOLDER:/app/data
+      - $NOTEBOOKS_FOLDER:/app/notebooks
     ports:
       - "8888:8888"
