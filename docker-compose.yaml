@@ -40,6 +40,15 @@ services:
     ports:
       - "8888:8888"
 
+  nbviewer:
+    build:
+      context: ./nbviewer
+      dockerfile: Dockerfile
+    volumes:      
+      - $NOTEBOOKS_FOLDER:/notebooks
+    ports:
+      - "8890:8080"        
+
   zeppelin:
     build:
       context: ./zeppelin
