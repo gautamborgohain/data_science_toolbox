@@ -12,8 +12,8 @@ To run only a specific tool, use `docker-compose up manifold`
 
 To stop `docker-compose down`
 
-The `/data` folder is mounted into all the services as `/app/data`.   
-The `/notebooks` dir is mounted additionally for jupyter
+The env var `DATA_FOLDER` folder is mounted into all the services as `/app/data`.   
+The env var `NOTEBOOKS_FOLDER` dir is mounted additionally for jupyter, zeppelin and nbviewer
 
 
 ## List of Services added:
@@ -74,6 +74,16 @@ The `/notebooks` dir is mounted additionally for jupyter
     *port* :   
     Jupyter Notebook `http:localhost:8888`  
     Jupyter Lab `http:localhost:8888/lab` 
+
+5. [NbViewer](https://hub.docker.com/r/jupyter/nbviewer): View jupyter notebooks locally or on github; Present your notebooks
+
+    *port* :  `http:localhost:8890`
+
+6. [Zeppelin](https://zeppelin.apache.org): Interactive notebooks with Spark and interactive visualization. Also has version control of notebooks
+
+    *port* :  `http:localhost:8889`
+
+
     
     
      
